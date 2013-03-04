@@ -4,18 +4,18 @@ import sqlalchemy
 import org.wayround.softengine.rtenv
 
 _required_modules = [
-    'org.wayround.softengine.modules.node',
-    'org.wayround.softengine.modules.node_access',
-    'org.wayround.softengine.modules.user',
-    'org.wayround.softengine.modules.group',
-    'org.wayround.softengine.modules.group_membership'
+    'org_wayround_softengine_modules_node',
+    'org_wayround_softengine_modules_node_access',
+    'org_wayround_softengine_modules_user',
+    'org_wayround_softengine_modules_group',
+    'org_wayround_softengine_modules_group_membership'
     ]
 
 class Nodes(org.wayround.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'org.wayround.softengine.modules.node'
+        self.module_name = 'org_wayround_softengine_modules_node'
 
         self.rtenv = rtenv
 
@@ -25,7 +25,7 @@ class Nodes(org.wayround.softengine.rtenv.ModulePrototype):
 
         class Node(self.rtenv.db.db_base):
 
-            __tablename__ = self.module_name + '.Node'
+            __tablename__ = self.module_name + '_Node'
 
             node_id = sqlalchemy.Column(
                 sqlalchemy.Integer,
@@ -58,7 +58,7 @@ class NodeAccesses(org.wayround.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'org.wayround.softengine.modules.node_access'
+        self.module_name = 'org_wayround_softengine_modules_node_access'
 
         self.rtenv = rtenv
 
@@ -68,7 +68,7 @@ class NodeAccesses(org.wayround.softengine.rtenv.ModulePrototype):
 
         class NodeAccess(self.rtenv.db.db_base):
 
-            __tablename__ = self.module_name + '.NodeAccess'
+            __tablename__ = self.module_name + '_NodeAccess'
 
             node_id = sqlalchemy.Column(
                 sqlalchemy.Integer,
@@ -132,7 +132,7 @@ class Users(org.wayround.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'org.wayround.softengine.modules.user'
+        self.module_name = 'org_wayround_softengine_modules_user'
 
         self.rtenv = rtenv
 
@@ -142,7 +142,7 @@ class Users(org.wayround.softengine.rtenv.ModulePrototype):
 
         class User(self.rtenv.db.db_base):
 
-            __tablename__ = self.module_name + '.User'
+            __tablename__ = self.module_name + '_User'
 
             name = sqlalchemy.Column(
                 sqlalchemy.UnicodeText,
@@ -181,7 +181,7 @@ class Groups(org.wayround.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'org.wayround.softengine.modules.group'
+        self.module_name = 'org_wayround_softengine_modules_group'
 
         self.rtenv = rtenv
 
@@ -191,7 +191,7 @@ class Groups(org.wayround.softengine.rtenv.ModulePrototype):
 
         class Group(self.rtenv.db.db_base):
 
-            __tablename__ = self.module_name + '.Group'
+            __tablename__ = self.module_name + '_Group'
 
             name = sqlalchemy.Column(
                 sqlalchemy.UnicodeText,
@@ -212,7 +212,7 @@ class GroupMemberships(org.wayround.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'org.wayround.softengine.modules.group_membership'
+        self.module_name = 'org_wayround_softengine_modules_group_membership'
 
         self.rtenv = rtenv
 
@@ -222,7 +222,7 @@ class GroupMemberships(org.wayround.softengine.rtenv.ModulePrototype):
 
         class GroupMembership(self.rtenv.db.db_base):
 
-            __tablename__ = self.module_name + '.GroupMembership'
+            __tablename__ = self.module_name + '_GroupMembership'
 
             ide = sqlalchemy.Column(
                 sqlalchemy.Integer,

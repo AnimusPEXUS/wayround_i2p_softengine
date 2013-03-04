@@ -6,6 +6,7 @@ import sqlalchemy.ext.declarative
 import sqlalchemy.orm
 
 class ModulesMissing(Exception): pass
+class DBSessionAbsent(Exception): pass
 
 class DB:
 
@@ -22,7 +23,7 @@ class DB:
 
         self.db_base.metadata.bind = self.db_engine
 
-        self.sess = sqlalchemy.orm.Session(bind=self.db_engine)
+        self._sess = sqlalchemy.orm.Session(bind=self.db_engine)
 
         return
 
@@ -31,14 +32,22 @@ class DB:
 
     def stop(self):
 
-        if self.sess:
-            self.sess.commit()
-            self.sess.close()
+        if self._sess:
+            self._sess.commit()
+            self._sess.close()
+            self._sess = None
 
         return
 
     def create_all(self, *args, **kwargs):
         return self.db_base.metadata.create_all(*args, **kwargs)
+
+    @property
+    def sess(self):
+        if not self._sess:
+            raise DBSessionAbsent("No DB Session")
+
+        return self._sess
 
 class RuntimeEnvironment:
 
@@ -51,6 +60,8 @@ class RuntimeEnvironment:
         self.modules = {}
         self.models = {}
         self.module_requirements = {}
+        self.templates = {}
+        self.renderers = {}
 
 
     def init(self):
