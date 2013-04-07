@@ -10,14 +10,14 @@ class DBSessionAbsent(Exception): pass
 
 class DB:
 
-    def __init__(self, config, echo=False):
+    def __init__(self, *args, **kwargs):
 
         self.db_base = sqlalchemy.ext.declarative.declarative_base()
 
         self.db_engine = (
                 sqlalchemy.create_engine(
-                config,
-                echo=echo
+                *args,
+                **kwargs
                 )
             )
 
