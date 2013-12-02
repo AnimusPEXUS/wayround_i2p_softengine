@@ -5,8 +5,14 @@ import sqlalchemy.ext
 import sqlalchemy.ext.declarative
 import sqlalchemy.orm
 
-class ModulesMissing(Exception): pass
-class DBSessionAbsent(Exception): pass
+
+class ModulesMissing(Exception):
+    pass
+
+
+class DBSessionAbsent(Exception):
+    pass
+
 
 class DB:
 
@@ -49,6 +55,7 @@ class DB:
 
         return self._sess
 
+
 class RuntimeEnvironment:
 
     def __init__(self, db):
@@ -62,7 +69,6 @@ class RuntimeEnvironment:
         self.module_requirements = {}
         self.templates = {}
         self.renderers = {}
-
 
     def init(self):
 
@@ -105,13 +111,11 @@ class RuntimeEnvironment:
 
         return
 
-
     def init_modules(self):
 
         for i in self.modules.keys():
 
             self.modules[i].init(self)
-
 
     def send_event(self, from_name, to_name, event, data):
 
