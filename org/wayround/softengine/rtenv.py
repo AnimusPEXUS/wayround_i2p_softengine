@@ -17,12 +17,7 @@ class DB:
 
         self.db_base = sqlalchemy.ext.declarative.declarative_base()
 
-        self.db_engine = (
-                sqlalchemy.create_engine(
-                *args,
-                **kwargs
-                )
-            )
+        self.db_engine = (sqlalchemy.create_engine(*args, **kwargs))
 
         self.db_base.metadata.bind = self.db_engine
 
@@ -31,7 +26,10 @@ class DB:
         return
 
     def __del__(self):
+
         self.stop()
+
+        return
 
     def stop(self):
 
@@ -67,9 +65,13 @@ class RuntimeEnvironment:
         self.templates = {}
         self.renderers = {}
 
+        return
+
     def init(self):
 
         self.check_modules()
+
+        return
 
     def check_modules(self):
 
@@ -114,6 +116,8 @@ class RuntimeEnvironment:
 
             self.modules[i].init(self)
 
+        return
+
     def send_event(self, from_name, to_name, event, data):
 
         if not from_name.isidentifer():
@@ -128,6 +132,8 @@ class RuntimeEnvironment:
         for i in self.modules.keys():
 
             self.modules[i].event(from_name, event, data)
+
+        return
 
 
 class ModulePrototype:

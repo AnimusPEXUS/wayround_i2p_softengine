@@ -1,4 +1,9 @@
 
+"""
+Module Classes in this python module can be used as examples
+"""
+
+
 import sqlalchemy
 
 import org.wayround.softengine.rtenv
@@ -10,6 +15,7 @@ _required_modules = [
     'org_wayround_softengine_modules_group',
     'org_wayround_softengine_modules_group_membership'
     ]
+
 
 class Nodes(org.wayround.softengine.rtenv.ModulePrototype):
 
@@ -53,6 +59,7 @@ class Nodes(org.wayround.softengine.rtenv.ModulePrototype):
         self.rtenv.models[self.module_name] = {
             'Node': Node
             }
+
 
 class NodeAccesses(org.wayround.softengine.rtenv.ModulePrototype):
 
@@ -177,6 +184,7 @@ class Users(org.wayround.softengine.rtenv.ModulePrototype):
             'User': User
             }
 
+
 class Groups(org.wayround.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
@@ -207,6 +215,7 @@ class Groups(org.wayround.softengine.rtenv.ModulePrototype):
         self.rtenv.models[self.module_name] = {
             'Group': Group
             }
+
 
 class GroupMemberships(org.wayround.softengine.rtenv.ModulePrototype):
 
