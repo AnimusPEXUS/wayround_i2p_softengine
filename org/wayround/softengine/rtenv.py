@@ -25,12 +25,6 @@ class DB:
 
         return
 
-    def __del__(self):
-
-        self.stop()
-
-        return
-
     def stop(self):
 
         if self._sess:
