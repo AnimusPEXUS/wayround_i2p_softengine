@@ -2,6 +2,8 @@
 import sqlalchemy.ext.declarative
 import sqlalchemy.orm
 
+import ZODB
+
 
 class ModulesMissing(Exception):
     pass
@@ -11,13 +13,13 @@ class DBSessionAbsent(Exception):
     pass
 
 
-class DB:
+class DB_SQLAlchemy:
 
     def __init__(self, *args, **kwargs):
 
         self.db_base = sqlalchemy.ext.declarative.declarative_base()
 
-        self.db_engine = (sqlalchemy.create_engine(*args, **kwargs))
+        self.db_engine = sqlalchemy.create_engine(*args, **kwargs)
 
         self.db_base.metadata.bind = self.db_engine
 
@@ -45,12 +47,28 @@ class DB:
         return self._sess
 
 
+class DB_ZODB:
+
+    def __init__(self, filename):
+        self._filename = filename
+        self._db = ZODB.DB(filename)
+        return
+
+    def open(self):
+        return self._db.open()
+        
+    def get_db(self):
+        return self._db
+
+
 class RuntimeEnvironment:
 
     def __init__(self, db):
 
-        if not isinstance(db, DB):
-            raise TypeError("`db' must be of DB class type")
+        if not isinstance(db, (DB_SQLAlchemy, DB_ZODB)):
+            raise TypeError(
+                "`db' must be of DB_SQLAlchemy or DB_ZODB class type"
+                )
 
         self.db = db
         self.modules = {}
@@ -88,9 +106,7 @@ class RuntimeEnvironment:
                 if not j in loaded_modules:
                     missing_modules.append(j)
 
-        missing_modules = list(set(missing_modules))
-
-        missing_modules.sort()
+        missing_modules = sorted(set(missing_modules))
 
         if len(missing_modules) != 0:
             missing_modules_text = ''
