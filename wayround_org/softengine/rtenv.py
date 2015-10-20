@@ -1,4 +1,13 @@
 
+'''
+How does this all work?
+
+Wath tasktracker for example usage of this all
+
+use wayround_org.softengine.rtenv.ModulePrototype to create modules containing
+database, it's access mesures and other stuff like templates
+'''
+
 import sqlalchemy.ext.declarative
 import sqlalchemy.orm
 
@@ -56,7 +65,7 @@ class DB_ZODB:
 
     def open(self):
         return self._db.open()
-        
+
     def get_db(self):
         return self._db
 
@@ -147,4 +156,5 @@ class RuntimeEnvironment:
 
 
 class ModulePrototype:
+    # TODO: write usage instruction
     pass
