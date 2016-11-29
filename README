@@ -1,0 +1,7 @@
+
+This project is more a specification than a code.
+
+Whan I've been writting tasktracker, I didn't liked Django and wanted to
+create more obviously functioning system. So this project will be more like the
+specification and documentation than the code (thou it's entierly not 
+documented at the moment).

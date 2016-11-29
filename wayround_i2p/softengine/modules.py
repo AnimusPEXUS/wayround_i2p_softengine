@@ -6,22 +6,22 @@ Module Classes in this python module can be used as examples
 
 import sqlalchemy
 
-import wayround_org.softengine.rtenv
+import wayround_i2p.softengine.rtenv
 
 _required_modules = [
-    'wayround_org_softengine_modules_node',
-    'wayround_org_softengine_modules_node_access',
-    'wayround_org_softengine_modules_user',
-    'wayround_org_softengine_modules_group',
-    'wayround_org_softengine_modules_group_membership'
+    'wayround_i2p_softengine_modules_node',
+    'wayround_i2p_softengine_modules_node_access',
+    'wayround_i2p_softengine_modules_user',
+    'wayround_i2p_softengine_modules_group',
+    'wayround_i2p_softengine_modules_group_membership'
     ]
 
 
-class Nodes(wayround_org.softengine.rtenv.ModulePrototype):
+class Nodes(wayround_i2p.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'wayround_org_softengine_modules_node'
+        self.module_name = 'wayround_i2p_softengine_modules_node'
 
         self.rtenv = rtenv
 
@@ -61,11 +61,11 @@ class Nodes(wayround_org.softengine.rtenv.ModulePrototype):
             }
 
 
-class NodeAccesses(wayround_org.softengine.rtenv.ModulePrototype):
+class NodeAccesses(wayround_i2p.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'wayround_org_softengine_modules_node_access'
+        self.module_name = 'wayround_i2p_softengine_modules_node_access'
 
         self.rtenv = rtenv
 
@@ -135,11 +135,11 @@ class NodeAccesses(wayround_org.softengine.rtenv.ModulePrototype):
             }
 
 
-class Users(wayround_org.softengine.rtenv.ModulePrototype):
+class Users(wayround_i2p.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'wayround_org_softengine_modules_user'
+        self.module_name = 'wayround_i2p_softengine_modules_user'
 
         self.rtenv = rtenv
 
@@ -185,11 +185,11 @@ class Users(wayround_org.softengine.rtenv.ModulePrototype):
             }
 
 
-class Groups(wayround_org.softengine.rtenv.ModulePrototype):
+class Groups(wayround_i2p.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'wayround_org_softengine_modules_group'
+        self.module_name = 'wayround_i2p_softengine_modules_group'
 
         self.rtenv = rtenv
 
@@ -217,11 +217,11 @@ class Groups(wayround_org.softengine.rtenv.ModulePrototype):
             }
 
 
-class GroupMemberships(wayround_org.softengine.rtenv.ModulePrototype):
+class GroupMemberships(wayround_i2p.softengine.rtenv.ModulePrototype):
 
     def __init__(self, rtenv):
 
-        self.module_name = 'wayround_org_softengine_modules_group_membership'
+        self.module_name = 'wayround_i2p_softengine_modules_group_membership'
 
         self.rtenv = rtenv
 

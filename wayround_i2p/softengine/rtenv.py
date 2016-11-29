@@ -4,7 +4,7 @@ How does this all work?
 
 Wath tasktracker for example usage of this all
 
-use wayround_org.softengine.rtenv.ModulePrototype to create modules containing
+use wayround_i2p.softengine.rtenv.ModulePrototype to create modules containing
 database, it's access mesures and other stuff like templates
 '''
 
